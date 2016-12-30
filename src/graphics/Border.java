@@ -5,18 +5,23 @@ import java.awt.Graphics;
 
 public class Border extends Entity {
 
-	public Border(int x, int y, Color color, int width, int height) {
-		super(x, y, color);
-	}
+  private int width, height;
 
-	@Override
-	public void update() {
-		
-	}
+  public Border(int x, int y, Color color, int width, int height) {
+    super(x, y, color);
+    this.width = width;
+    this.height = height;
+  }
 
-	@Override
-	public void paint(Graphics g) {
-		
-	}
+  @Override
+  public void update() {
+
+  }
+
+  @Override
+  public void paint(Graphics g) {
+    g.setColor(color);
+    g.drawRect(x, y, width - 1, height - 1);
+  }
 
 }

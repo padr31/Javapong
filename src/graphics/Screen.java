@@ -1,28 +1,23 @@
 package graphics;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import config.Config;
+import main.Main;
 
 public class Screen extends JPanel {
 
-	private static final long serialVersionUID = 1L;
-	
-	public Screen() {
-		
-	}
-	
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		
-		g.setColor(Color.black);
-		g.drawRect(0, 0, Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
-		
-		for(Entity e : Entities.entities) {
-			e.paint(g);
-		}
-	}
+  private static final long serialVersionUID = 1L;
+
+  public Screen() {
+    repaint();
+  }
+
+  public void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    
+    if (Main.game.getState() != null)
+      Main.game.getState().paint(g);
+  }
 }
